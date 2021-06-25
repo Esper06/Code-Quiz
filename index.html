@@ -13,20 +13,37 @@
     </nav>
 
     <header>
-        <h1 class="center">Coding Quiz Challenge!</h1>
+        <h1 class="center" id="title" class="show">Coding Quiz Challenge!</h1>
     </header>   
 
-    <section class="center">
+    <!-- Paragraph explaining game, and start button -->
+    <section class="center show" id="instructions">
         <p class="center">Try to answer the questions as fast as you can. Be careful though as wrong answers will give you a time penalty!</p>
-        <button type="button" id="startButton">Start</button>
+         <button type="button" id="startButton">Start</button>
     </section>
 
-        
+    
     
 
+    <!-- Quiz and quiz quesions -->
+    <div id="quiz" class="hidden">
+        <div id="questions"> <p>Question</p> </div>
+        <div id="choices">
+            <div class="choice" id="A" onclick="checkAnswer('A')">A</div>
+            <div class="choice" id="B" onclick="checkAnswer('B')">B</div>
+            <div class="choice" id="C" onclick="checkAnswer('C')">C</div>
+        </div>
+
+    </div>
+
+<!-- Timer -->
     <section>
-        <p id="timer">Time:<span>0</span></p>
-    </section>
-       
+        <p id="timer">Time:<span id="seconds">0</span></p>
+    </section> 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>   
+    <script src="./Assets/js/script.js"></script>
+    
+
 </body>
 </html>

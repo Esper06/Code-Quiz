@@ -1,13 +1,16 @@
+/* Simple font changes */
 * {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
 }
 
+/* Style changes to the button */
 button {
     background-color: purple;
     color: white;
 }
 
+/* Positions the text and makes it center */
 .center {
     text-align: center;
     margin: auto;
@@ -16,18 +19,29 @@ button {
     position: relative;
 }
 
+/* Centres the style button */
 #startButton {
     margin: 0;
     position: absolute;
     top: 100%;
-    -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     right: 47%;
 }
 
+/* Moves the timer up to the top right of the page */ 
 #timer {
     right: 2%;
     position: absolute;
     top: 0%;
 }
 
+
+/* Class to be applied or removed with JS. It hides the element */
+.hidden {
+    display: none;
+}
+
+/* Same as .hidden, but instead this shows the element */
+.show {
+    display: auto;
+}

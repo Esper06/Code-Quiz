@@ -30,7 +30,7 @@ var questionArray = [
         choiceA: "Hyper Text Markup Language",
         choiceB: "High Tech Maker Language",
         choiceC: "Home Tool Markup Language",
-        correct: "A"
+        correct: 'A'
     },
 
     { //question 2
@@ -38,7 +38,7 @@ var questionArray = [
         choiceA: "answer 1",
         choiceB: "answer 2",
         choiceC: "correct answer",
-        correct: "C"
+        correct: 'C'
     },
 
     { //question 3
@@ -46,7 +46,7 @@ var questionArray = [
         choiceA: "correct answer",
         choiceB: "answer 2",
         choiceC: "answer3",
-        correct: "A"
+        correct: 'A'
     },
 
     { //question 4 
@@ -54,7 +54,7 @@ var questionArray = [
         choiceA: "answer 1",
         choiceB: "correct answer",
         choiceC: "answer 3",
-        correct: "B"
+        correct: 'B'
     }
 ];
 
@@ -67,6 +67,7 @@ var lastQuestionIndex = questionArray.length - 1;   //sets last question. The -1
 //this function updates the questions and choices based on the index the question array is on
 function renderQuestion() { 
     var q = questionArray[runningQuestionIndex];
+    
     question.html("<p>" + q.question + "</p>")
     choiceA.html(q.choiceA);
     choiceB.html(q.choiceB);   //I have to use .html as the elements have been grabbed in jquery

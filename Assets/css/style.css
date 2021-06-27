@@ -45,3 +45,12 @@ button {
 .show {
     display: auto;
 }
+
+.questionBox {
+    background-color: red;
+    border-radius: 25px;
+    color: white;
+    margin: 5px;
+    width: 200px;
+    text-align: center;
+}

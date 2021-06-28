@@ -38,26 +38,26 @@ var questionArray = [
     },
 
     { //question 2
-        question: "This is question 2",
-        choiceA: "answer 1",
-        choiceB: "answer 2",
-        choiceC: "correct answer",
+        question: "Inside which HTML element do we put JavaScript?",
+        choiceA: "scripting",
+        choiceB: "js",
+        choiceC: "script",
         correct: 'C'
     },
 
     { //question 3
-        question: "This is question 3",
-        choiceA: "correct answer",
-        choiceB: "answer 2",
-        choiceC: "answer3",
+        question: "How do you call a function?",
+        choiceA: "myFunction()",
+        choiceB: "myFunction",
+        choiceC: "myFunction = call",
         correct: 'A'
     },
 
     { //question 4 
-        question: "This is question 4",
-        choiceA: "answer 1",
-        choiceB: "correct answer",
-        choiceC: "answer 3",
+        question: "How do you write a comment in Javascript?",
+        choiceA: "~~",
+        choiceB: "//",
+        choiceC: "#",
         correct: 'B'
     }
 ];

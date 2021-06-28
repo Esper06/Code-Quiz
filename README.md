@@ -5,7 +5,7 @@ https://esper06.github.io/Code-Quiz/
 
 # Screenshot Of Project
 
-<img src="./Assets/Images/Screenshot.jpg" alt="A screenshot of the final product. It's a screen with a button saying 'start quiz' in the middle">
+<img src="./Assets/images/Screenshot.jpg" alt="A screenshot of the final product. It's a screen with a button saying 'start quiz' in the middle">
 
 # Description
 

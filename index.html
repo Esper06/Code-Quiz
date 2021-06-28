@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav>
-        <p>View Highscores</p>
+        <p id="highscores">View Highscores</p>
     </nav>
 
     <header>
@@ -22,21 +22,30 @@
          <button type="button" id="startButton">Start</button>
     </section>
 
+    <!-- Shows score and the button to save said score -->
     <section class="center hidden" id="scoreContainer">
         <p>Score: <span id="score">0</span> out of 4!</p>
+        <button id="submitScore">Click here to submit your score!</button>
     </section>
     
+    <section class="hidden" id="scoreboard">
+        <ul>
+            
+        </ul>
+    </section>
+
 
     <!-- Quiz and quiz quesions -->
     <div id="quiz" class="hidden">
         <div id="questions"> <p>Question</p> </div>
-        <div id="choices">
+        <div id="choices">           <!-- Runs the checkAnswer function with the input as whatever is clicked -->
             <div class="choice questionBox" id="A" onclick="checkAnswer('A')">A</div>
             <div class="choice questionBox" id="B" onclick="checkAnswer('B')">B</div>
             <div class="choice questionBox" id="C" onclick="checkAnswer('C')">C</div>
         </div>
 
     </div>
+
 
 <!-- Timer -->
     <section>

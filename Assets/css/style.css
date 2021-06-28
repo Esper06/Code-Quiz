@@ -46,6 +46,8 @@ button {
     display: auto;
 }
 
+
+/* Styles the questions so that they look like buttons */
 .questionBox {
     background-color: red;
     border-radius: 25px;
@@ -53,4 +55,8 @@ button {
     margin: 5px;
     width: 200px;
     text-align: center;
+}
+
+#highscores:hover {
+    color: slategray;
 }

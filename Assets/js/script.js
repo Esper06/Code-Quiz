@@ -8,6 +8,10 @@ var title = $('#title') //selects the h1 element that is the title
 var instructions = $('#instructions') //selects the instructions and start button
 var score = $('#score') //selects the span in scoreContainer that contains the score
 var scoreContainer = $('#scoreContainer') //selects the sections that contains the score
+document.getElementById("submitScore").addEventListener("click", saveScore) //selects start button and makes it run a function on click
+document.getElementById("highscores").addEventListener("click", showHighscores) //selects highscores paragraph and makes it run a function on click
+var scoreList = $('#scoreList') //grabs the list element that will contain the score
+var scoreboard = $('#scoreboard') // grabs the container that contains 'scoreList'
 
 
 var choiceA = $('#A')
@@ -67,7 +71,7 @@ var lastQuestionIndex = questionArray.length - 1;   //sets last question. The -1
 //this function updates the questions and choices based on the index the question array is on
 function renderQuestion() { 
     var q = questionArray[runningQuestionIndex];
-    
+
     question.html("<p>" + q.question + "</p>")
     choiceA.html(q.choiceA);
     choiceB.html(q.choiceB);   //I have to use .html as the elements have been grabbed in jquery
@@ -102,11 +106,11 @@ function countDown() {
     
 
 
-/*
+
     if (time <= 0) { //ends quiz if the time is less than or equal to zero
-        endQuiz();
+        scoreRender();
     }
-*/
+
 
 } 
 
@@ -122,7 +126,7 @@ function scoreRender () {
 
 
 function checkAnswer(answer) {
-    if (answer == question[runningQuestionIndex].correct){ //if the choice selected matches the one in correct it increments the score
+    if (answer == questionArray[runningQuestionIndex].correct){ //if the choice selected matches the one in correct it increments the score
         scoreCount++;
         alert("Correct Answer!")
     }
@@ -130,6 +134,10 @@ function checkAnswer(answer) {
     {
         alert("Wrong Answer") //if it's wrong it should take away 10 seconds of time
         time -= 10
+
+        if (time <= 0) {  //ends quiz when time hits 0
+            scoreRender()
+        }
     }
     if (runningQuestionIndex < lastQuestionIndex) { //if the current question is below the last one then it should increment the questions
         runningQuestionIndex++;
@@ -141,3 +149,29 @@ function checkAnswer(answer) {
         scoreRender();
     }
 }
+
+//on clicking save score button, this function is ran
+function saveScore() {
+   var finalScore = { Score: [scoreCount]}; //creates an object that shows what the score is
+
+    localStorage.setItem('finalScore', JSON.stringify(finalScore)); //turns the object into a string and saves it to local storage
+
+}
+
+
+function showHighscores () {
+    $(scoreContainer).attr('class', 'hidden'); //hides most elements on screen
+    $(title).attr("class", "hidden");
+    $(instructions).attr("class", "hidden")
+    $(quiz).attr("class", "hidden")
+    var scoreButton = document.getElementById("submitScore"); //has to get this differently since it doesn't use jquery
+    scoreButton.style.display = "none"; //hides the submit score button
+    $(scoreboard).attr("class", "show") //Shows the container for the highscores
+
+
+    var retrievedScore = JSON.parse(finalScore); //Gets scores from local storage
+   
+    scoreList.appendChild(retrievedScore);
+
+}
+

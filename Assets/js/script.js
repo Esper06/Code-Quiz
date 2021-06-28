@@ -10,9 +10,8 @@ var score = $('#score') //selects the span in scoreContainer that contains the s
 var scoreContainer = $('#scoreContainer') //selects the sections that contains the score
 document.getElementById("submitScore").addEventListener("click", saveScore) //selects start button and makes it run a function on click
 document.getElementById("highscores").addEventListener("click", showHighscores) //selects highscores paragraph and makes it run a function on click
-var scoreList = $('#scoreList') //grabs the list element that will contain the score
 var scoreboard = $('#scoreboard') // grabs the container that contains 'scoreList'
-
+var scoreList = $('#scoreList') //grabs the span inside scoreboard
 
 var choiceA = $('#A')
 var choiceB = $('#B') //These three variables link to the choices
@@ -25,6 +24,7 @@ var tick; //will be used to start the timer
 var time = 60; //sets how many seconds on the timer
 var scoreCount = 0; //sets the score
 var runningQuestionIndex = 0; //sets the questions to the start
+var finalScore; //this needs to be declared here as I use it in multiple functions
 
 //Creating the questions. We do this in an array so that we can cycle through them later
 
@@ -152,10 +152,9 @@ function checkAnswer(answer) {
 
 //on clicking save score button, this function is ran
 function saveScore() {
-   var finalScore = { Score: [scoreCount]}; //creates an object that shows what the score is
+    finalScore = "Score " + scoreCount; //creates an string that shows your score
 
-    localStorage.setItem('finalScore', JSON.stringify(finalScore)); //turns the object into a string and saves it to local storage
-
+    localStorage.setItem('finalScore', finalScore); //store the string in local storage
 }
 
 
@@ -168,10 +167,10 @@ function showHighscores () {
     scoreButton.style.display = "none"; //hides the submit score button
     $(scoreboard).attr("class", "show") //Shows the container for the highscores
 
-
-    var retrievedScore = JSON.parse(finalScore); //Gets scores from local storage
    
-    scoreList.appendChild(retrievedScore);
+    var retrievedScore = localStorage.getItem("finalScore"); //Gets scores from local storage
+  
+    scoreList.html(retrievedScore) //changes the span inside scoreboard to show the stored score
 
 }
 
